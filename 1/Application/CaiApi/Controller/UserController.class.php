@@ -1,17 +1,20 @@
 <?php
-//注册控制器
 namespace CaiApi\Controller;
 use Think\Controller;
-header("Content-type: text/javascript; charset=utf-8");
-class LoginController extends Controller{
+//header("Content-type: text/javascript; charset=utf-8");
+class UserController extends Controller{
 	private $userLogic;
+	
 	function __construct(){
-        $this->loginLogic = D('User','Logic');        
+        $this->userLogic = D('User','Logic');        
     }
     function login(){
-    	$userName = I("request.userName");
+    	$userName = I("request.username");
     	$password = I("request.password");
     	$value = I("request.value");
-    	$this->loginLogic->login($userName,$password,$value);
+    	$this->userLogic->login($userName,$password,$value);
+    }
+    function index(){
+    	echo "index";
     }
 }

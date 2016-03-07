@@ -5,7 +5,7 @@ return array(
 	'db_host'	=>	'localhost',
 	'db_name'	=>	'caizi',
 	'db_user'	=>	'root',
-	'db_pwd'	=>	'',
+	'db_pwd'	=>	'199232124',
 	'db_port'	=>	'3306',
 	'db_charset'=>	'utf8',
 	'db_prefix'	=>	'think_'
