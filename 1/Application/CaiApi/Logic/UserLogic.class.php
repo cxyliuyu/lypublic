@@ -14,7 +14,6 @@ class UserLogic extends BasicLogic{
 		$key = C("key");
 		$allkey = $username.$password.$key;
 		$allValue = md5($allkey);
-
 		$result = array();
 		if($allValue == $value){
 			//通过校验，是合法请求
