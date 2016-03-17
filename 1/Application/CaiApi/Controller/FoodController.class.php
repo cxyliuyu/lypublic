@@ -12,6 +12,7 @@ class FoodController extends Controller {
 		$pageNum = I('request.pageNum');
 		$this->foodLogic->getFoodsByPage($pageSize,$pageNum);
 	}
+	
 }
 
 ?>
