@@ -9,11 +9,11 @@ class FoodLogic extends BasicLogic{
 
 	function __construct(){
 		$this->foodModel = D('food');
-		$this->foodsteps = D('foodteps');
-		$this->foodlist = D('foodlist');
+		//$this->foodsteps = D('foodteps');
+		//$this->foodlist = D('foodlist');
 	}
 	function getFoodsByPage($pageSize,$pageNum){
-		$return = array();
+		$result = array();
 		$data = $this->foodModel->page("$pageNum,$pageSize")->order('id desc')->select();
 		if($data != null){
 			$result['code'] = "200";
@@ -23,7 +23,7 @@ class FoodLogic extends BasicLogic{
 			$result['code'] = "201";
 			$result['msg'] = "error";
 		}
-		echo json_encode($return);
+		echo json_encode($result);
 	}
 	function getFoodById($id){
 		$return = array();
