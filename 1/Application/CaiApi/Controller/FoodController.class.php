@@ -16,6 +16,11 @@ class FoodController extends Controller {
 		$id = I('request.id');
 		$this->foodLogic->getFoodById($id);
 	}
+	function searchFood(){
+		//查找食物方法
+		$key = I('request.key');
+		$this->foodLogic->searchFood($key);
+	}
 }
 
 ?>

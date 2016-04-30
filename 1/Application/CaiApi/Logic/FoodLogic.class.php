@@ -42,4 +42,19 @@ class FoodLogic extends BasicLogic{
 		}
 		echo json_encode($return);
 	}
+
+	function searchFood($key){
+		$return = array();
+		$where['foodname'] = array('like',"%$key%");
+		$data = $this->foodModel->where($where)->limit(10)->select();
+		if($data != null){
+			$result['code'] = "200";
+			$result['msg'] = "success";
+			$result['list'] = $data;
+		}else{
+			$result['code'] = "201";
+			$result['msg'] = "error";
+		}
+		echo json_encode($result);
+	}
 }
