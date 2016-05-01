@@ -9,8 +9,8 @@ class FoodLogic extends BasicLogic{
 
 	function __construct(){
 		$this->foodModel = D('food');
-		//$this->foodsteps = D('foodteps');
-		//$this->foodlist = D('foodlist');
+		$this->foodsteps = D('foodsteps');
+		$this->foodlist = D('foodlist');
 	}
 	function getFoodsByPage($pageSize,$pageNum){
 		$result = array();
@@ -28,13 +28,13 @@ class FoodLogic extends BasicLogic{
 	function getFoodById($id){
 		$return = array();
 		$food = $this->foodModel->where("id = $id")->find();
-		$foodsteps = $this->foodsteps->where("foodid = $id")->order("order desc")->select();
-		$foodlist = $this->foodlist->where("foodid = $id")->select();
-		if($food!= null && $foodteps!= null &&$foodlist != null){
+		$foodstepsData = $this->foodsteps->where("foodid = $id")->select();
+		$foodlistData = $this->foodlist->where("foodid = $id")->select();
+		if($food!= null && $foodstepsData!= null &&$foodlistData != null){
 			$return['code'] = "200";
 			$return['msg'] = "success";
 			$return['food'] = $food;
-			$return['foodteps'] = $foodteps;
+			$return['foodteps'] = $foodstepsData;
 			$return['foodlist'] = $foodlist;
 		}else{
 			$return['code'] = "201";
