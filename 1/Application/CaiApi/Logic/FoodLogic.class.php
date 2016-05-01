@@ -34,7 +34,7 @@ class FoodLogic extends BasicLogic{
 			$return['code'] = "200";
 			$return['msg'] = "success";
 			$return['food'] = $food;
-			$return['foodteps'] = $foodstepsData;
+			$return['foodsteps'] = $foodstepsData;
 			$return['foodlist'] = $foodlist;
 		}else{
 			$return['code'] = "201";
