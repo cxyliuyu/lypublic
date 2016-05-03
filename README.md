@@ -10,3 +10,6 @@
 	用户名username密码password用md5加密后传输，value为username+password+key的字符串md5加密后的值
 	2.分页获取菜谱
 	service + /CaiApi/Food/getFoodsByPage?pageSize=1&&pageNum=1
+
+	3根据id获取菜谱详情
+	service + /CaiApi/Food/getFoodById?id=3
