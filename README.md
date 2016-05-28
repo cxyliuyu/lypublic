@@ -13,3 +13,18 @@
 
 	3根据id获取菜谱详情
 	service + /CaiApi/Food/getFoodById?id=3
+
+	4查询菜谱
+	service + /CaiApi/Food/searchFood?key=豆腐
+
+	5根据菜谱分页获取评论
+	service + /CaiApi/Comment/getCommentByfoodIdAndPage?pageSize=5&&pageNum=1&&foodId=3
+
+	6添加新的评论接口
+	service + /CaiApi/Comment/addComment?userId=2&&foodId=3&&content=haha
+
+	7根据用户id分页获取收藏
+	service + /CaiApi/Save/getSaveByUserIdAndPage?userId=1&&pageSize=5&&pageNum=1
+	
+	8添加新的收藏
+	service + /CaiApi/Save/addSave?userId=1&&foodId=5

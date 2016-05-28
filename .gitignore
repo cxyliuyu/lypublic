@@ -45,3 +45,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+.svn/pristine/53/53dffbfbe77e4fe85033125689d37426d99f7ef7.svn-base
+*.svn-base
+1/Application/Runtime/Logs/CaiApi/16_04_05.log
+*.log
+.svn/wc.db

@@ -35,3 +35,5 @@ class UserLogic extends BasicLogic{
 
 	}
 }
+
+?>
