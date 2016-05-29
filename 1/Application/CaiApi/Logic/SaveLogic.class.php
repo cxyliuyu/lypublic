@@ -36,5 +36,19 @@ class SaveLogic extends BasicLogic{
 		}
 		echo json_encode($result);
 	}
+
+	function isSaved($userId,$foodId){
+		$result = array();
+		$data = $this->saveModel->where("userid = $userId AND foodid = $foodId")->select();
+		if($data != null){
+			$result['code'] = "200";
+			$result['msg'] = "success";
+			$result['list'] = $data;
+		}else{
+			$result['code'] = "201";
+			$result['msg'] = "error";
+		}
+		echo json_encode($result);
+	}
 }
 ?>

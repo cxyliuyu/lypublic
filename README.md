@@ -28,3 +28,6 @@
 	
 	8添加新的收藏
 	service + /CaiApi/Save/addSave?userId=1&&foodId=5
+
+	9获得某条菜谱是否被收藏
+	service + /CaiApi/Save/isSaved?foodId=3&&userId=1

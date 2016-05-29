@@ -18,5 +18,11 @@ class SaveController extends Controller {
 		$foodId = I('request.foodId');
 		$this->saveLogic->addSave($userId,$foodId);
 	}
+	function isSaved(){
+		//查看某菜谱是否保存过
+		$userId = I('request.userId');
+		$foodId = I('request.foodId');
+		$this->saveLogic->isSaved($userId,$foodId);
+	}
 }
 ?>
