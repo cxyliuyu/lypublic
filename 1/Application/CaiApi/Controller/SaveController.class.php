@@ -24,5 +24,10 @@ class SaveController extends Controller {
 		$foodId = I('request.foodId');
 		$this->saveLogic->isSaved($userId,$foodId);
 	}
+	function deleteSave(){
+		$userId = I('request.userId');
+		$foodId = I('request.foodId');
+		$this->saveLogic->deleteSave($userId,$foodId);
+	}
 }
 ?>
