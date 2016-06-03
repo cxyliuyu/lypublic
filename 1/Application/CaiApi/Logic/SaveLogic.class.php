@@ -9,13 +9,21 @@ class SaveLogic extends BasicLogic{
 		$this->saveModel = D('save');
 	}
 	function getSaveByUserIdAndPage($userId,$pageSize,$pageNum){
+		$foodModel = D('food');
 		$result = array();
+		$foodArray = array();
 		if($userId&&$pageSize&&$pageNum){
 			$data = $this->saveModel->where("userid =$userId")->page("$pageNum,$pageSize")->order('id desc')->select();
 			if($data != null){
+				for($i=0;$i<count($data);$i++){
+					$foodid = $data[$i]["foodid"];
+					$food = $foodModel->where("id = $foodid")->find();
+					$foodArray[] = $food;
+				}
 				$result['code'] = "200";
 				$result['msg'] = "success";
-				$result['list'] = $data;
+				$result['list'] = $foodArray;
+
 			}else{
 				$result['code'] = "201";
 				$result['msg'] = "error";
