@@ -15,7 +15,7 @@ class FileController extends Controller{
         // 上传文件 
         $info   =   $upload->upload();
         if(!$info) {// 上传错误提示错误信息
-            // $this->error($upload->getError());
+            $this->error($upload->getError());
             $result['code'] = "201";
             $result['msg'] = "error";
         }else{// 上传成功
