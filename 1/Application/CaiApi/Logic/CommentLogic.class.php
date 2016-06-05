@@ -40,7 +40,7 @@ class CommentLogic extends BasicLogic{
 			$data['time'] = $time;
 			$result = array();
 			$result['id'] = $this->commentModel->add($data);
-			if($result != null){
+			if($result['id'] != null){
 				$result['code'] = "200";
 				$result['msg'] = "success";
 			}else{

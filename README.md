@@ -31,3 +31,9 @@
 
 	9获得某条菜谱是否被收藏
 	service + /CaiApi/Save/isSaved?foodId=3&&userId=1
+
+	10上传图片接口
+	service + /CaiApi/File/upload
+
+	11注册接口
+	service + /CaiApi/User/register?username=161&&password1=1234&&password2=12345&truename=哈哈
