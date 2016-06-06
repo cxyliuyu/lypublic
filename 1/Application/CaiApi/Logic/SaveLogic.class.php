@@ -13,7 +13,7 @@ class SaveLogic extends BasicLogic{
 		$result = array();
 		$foodArray = array();
 		if($userId&&$pageSize&&$pageNum){
-			$data = $this->saveModel->where("userid =$userId")->page("$pageNum,$pageSize")->order('id desc')->select();
+			$data = $this->saveModel->where("userid ='$userId'")->page("$pageNum,$pageSize")->order('id desc')->select();
 			if($data != null){
 				for($i=0;$i<count($data);$i++){
 					$foodid = $data[$i]["foodid"];
@@ -60,7 +60,7 @@ class SaveLogic extends BasicLogic{
 		//查询是否收藏
 		$result = array();
 		if($userId&&$foodId){
-			$data = $this->saveModel->where("userid = $userId AND foodid = $foodId")->select();
+			$data = $this->saveModel->where("userid = '$userId' AND foodid = '$foodId'")->select();
 			if($data != null){
 				$result['code'] = "200";
 				$result['msg'] = "success";
@@ -79,7 +79,7 @@ class SaveLogic extends BasicLogic{
 		//删除收藏
 		$result = array();
 		if($userId&&$foodId){
-			$data = $this->saveModel->where("userid = $userId AND foodid = $foodId")->delete();
+			$data = $this->saveModel->where("userid = '$userId' AND foodid = '$foodId'")->delete();
 			if($data != null){
 				$result['code'] = "200";
 				$result['msg'] = "success";

@@ -13,7 +13,7 @@ class CommentLogic extends BasicLogic{
 		//分页查案评论
 		$result = array();
 		if($pageSize&&$pageNum&&$foodId){
-			$data = $this->commentModel->where("foodId = $foodId")->page("$pageNum,$pageSize")->order('id desc')->select();
+			$data = $this->commentModel->where("foodId = '$foodId'")->page("$pageNum,$pageSize")->order('id desc')->select();
 			if($data != null){
 				$result['code'] = "200";
 				$result['msg'] = "success";

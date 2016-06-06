@@ -38,12 +38,12 @@ class UserLogic extends BasicLogic{
 		}
 		echo json_encode($result);
 	}
-	
+
 	function register($username,$password1,$password2,$truename){
 		$result = array();
 		if($username&&$password1&&$password2&&$truename){
 			if(ereg("^[0-9a-zA-Z\_]*$",$username.$password1.$password2)){
-				$user = $this->userModel->where("username = $username")->find();
+				$user = $this->userModel->where("username = '$username'")->find();
 				if($user != null){
 					$result['code'] = "204";
 					$result['msg'] = "用户名已存在";
