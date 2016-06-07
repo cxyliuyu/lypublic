@@ -33,7 +33,7 @@ class CommentLogic extends BasicLogic{
 	function addComment($userId,$foodId,$content,$time){
 		//增加评论
 		$data = array();
-		if($userId&&$foodId&&$content$time){
+		if($userId&&$foodId&&$content&&$time){
 			$data['userid'] = $userId;
 			$data['foodid'] = $foodId;
 			$data['content']= $content;
