@@ -15,6 +15,14 @@ class CommentLogic extends BasicLogic{
 		if($pageSize&&$pageNum&&$foodId){
 			$data = $this->commentModel->where("foodId = '$foodId'")->page("$pageNum,$pageSize")->order('id desc')->select();
 			if($data != null){
+				$userModel = D('user');
+				for($i=0;$i<count($data);$i++){
+					$comment = $data[$i];
+					$userId = $comment["userid"];
+					$user = $userModel->where("id = '$userId'")->find();
+					$trueName = $user["truename"];
+					$data[$i]["truename"] = $trueName;
+				}
 				$result['code'] = "200";
 				$result['msg'] = "success";
 				$result['list'] = $data;
@@ -52,6 +60,35 @@ class CommentLogic extends BasicLogic{
 			$result['msg'] = "error";
 		}
 		echo json_encode($result);
+	}
+
+	function getConversations($userId){
+		//获取用户最近的评论
+		$result = array();
+		if($userId){
+			$foodModel = D('food');
+			$foodIdArray = array();
+			$foodOfUser = $foodModel->where("userid = '$userId'")->select();
+			for($i=0;$i<count($foodOfUser);$i++){
+				$food = $foodOfUser[$i];
+				$foodIdArray[$i] = $food['id'];
+			}
+			$map['foodid'] = array('IN',$foodIdArray);
+			$data = $this->commentModel->where($map)->order("id")->select();
+			if($data != null){
+				$result['code'] = "200";
+				$result['msg'] = "success";
+				$result['list'] = $data;	
+			}else{
+				$result['code'] = "202";
+				$result['msg'] = "error";	
+			}
+		}else{
+			$result['code'] = "201";
+			$result['msg'] = "error";
+		}
+		echo json_encode($result);
+
 	}
 }
 

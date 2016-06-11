@@ -25,6 +25,10 @@ class CommentController extends Controller {
 		$time = time();
 		$this->commentLogic->addComment($userId,$foodId,$content,$time);
 	}
+	function getConversations(){
+		$userId = I('request.userId');
+		$this->commentLogic->getConversations($userId);
+	}
 
 }
 ?>

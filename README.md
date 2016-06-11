@@ -37,3 +37,19 @@
 
 	11注册接口
 	service + /CaiApi/User/register?username=161&&password1=1234&&password2=12345&truename=哈哈
+
+	12根据用户id获取菜谱列表
+	service + /CaiApi/Food/getFoodsByUserIdAndPage?userId=1&&pageSize=10&&pageNum=1\
+
+	13增加菜谱
+	1）增加food表
+	Service +/CaiApi/Food/addFood?foodName=%E8%B1%86%E6%B2%99%E7%BB%BF%E8%B1%86%E7%B3%95&&foodImg=http://cp2.douguo.net/upload/caiku/3/9/d/600x400_39876bdcc870d5c26d92059d4813e9ad.jpeg&&userId=3&&content=哈哈哈
+	2）增加foodlist(配料)表
+	Service +/CaiApi/Food/addFoodList?foodListName=%E7%B3%96&&foodListCount=50g&&foodId=8
+	3）增加foodstep(制作步骤)表
+	http://localhost/lypublic/1/index.php/CaiApi/Food/addFoodStep?stepImg=http://cp2.douguo.net/upload/caiku/c/e/3/200_ce44383ed861c83b8e059fd3168f6c83.jpeg&&stepTxt=哈哈哈&&stepOrder=1&&foodId=8
+
+	注意，本接口的事务管理在客户端实现
+
+	14根据用户id，获取消息列表
+	Service + /CaiApi/Comment/getConversations?userId=1
