@@ -21,7 +21,9 @@ class CommentLogic extends BasicLogic{
 					$userId = $comment["userid"];
 					$user = $userModel->where("id = '$userId'")->find();
 					$trueName = $user["truename"];
+					$userImg = $user["userimg"];
 					$data[$i]["truename"] = $trueName;
+					$data[$i]["userimg"] = $userImg;
 				}
 				$result['code'] = "200";
 				$result['msg'] = "success";
@@ -76,6 +78,16 @@ class CommentLogic extends BasicLogic{
 			$map['foodid'] = array('IN',$foodIdArray);
 			$data = $this->commentModel->where($map)->order("id")->select();
 			if($data != null){
+				$userModel = D('user');
+				for($i=0;$i<count($data);$i++){
+					$comment = $data[$i];
+					$userId = $comment["userid"];
+					$user = $userModel->where("id = '$userId'")->find();
+					$trueName = $user["truename"];
+					$userImg = $user["userimg"];
+					$data[$i]["truename"] = $trueName;
+					$data[$i]["userimg"] = $userImg;
+				}
 				$result['code'] = "200";
 				$result['msg'] = "success";
 				$result['list'] = $data;	
