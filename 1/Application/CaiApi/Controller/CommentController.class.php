@@ -21,7 +21,7 @@ class CommentController extends Controller {
 		$userId = I('request.userId');
 		$foodId = I('request.foodId');
 		$content = I('request.content');
-		echo $content;
+		//echo $content;
 		$time = time();
 		$this->commentLogic->addComment($userId,$foodId,$content,$time);
 	}
